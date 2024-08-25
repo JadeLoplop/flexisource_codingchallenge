@@ -1,124 +1,64 @@
-# Laravel Customer Importer API
+# Flexisource Coding Challenge
 
-This Laravel project demonstrates how to build a RESTful API that imports customer data from a third-party API and stores it in a database. It also provides endpoints to list and retrieve customer details.
+This repository contains the solution for the Flexisource coding challenge. The application is built using Laravel and demonstrates how to import, store, and retrieve customer data from a third-party API.
 
 ## Features
+- Import customers from a third-party data provider.
+- Display a list of customers from the database.
+- Retrieve and display details of a single customer from the database.
 
-- Import customers from the [RandomUser API](https://randomuser.me/api) and store them in the database.
-- Display a list of customers stored in the database.
-- Retrieve detailed information about a specific customer.
+## Design Considerations
+- **Single Responsibility Principle**: Code logic is decoupled into services and controllers to ensure maintainability.
+- **Configuration Management**: Environment-specific values are stored in the `.env` file, ensuring flexibility in case of requirement changes.
+- **Error Handling**: Proper exception handling is implemented throughout the application to provide meaningful error messages and logging.
 
-## Project Structure
+## Installation Instructions
 
-- **Controller**: Handles HTTP requests and responses.
-- **Service**: Contains business logic, including the customer import functionality.
-- **Model**: Manages database interactions.
-- **Tests**: Unit and feature tests to ensure the correctness of the application.
-
-## Prerequisites
-
-- PHP 8.x
-- Composer
-- Laravel 11.x
-- MySQL or another supported database
-
-## Installation
-
-1. **Clone the repository:**
+1. **Clone the Repository**
     ```bash
     git clone https://github.com/JadeLoplop/flexisource_codingchallenge.git
     cd flexisource_codingchallenge
     ```
 
-2. **Install dependencies:**
+2. **Install Dependencies**
     ```bash
     composer install
     ```
 
-3. **Copy the `.env` file and configure your environment:**
-    ```bash
-    cp .env.example .env
-    ```
-   Update the `.env` file with your database credentials and other necessary configuration.
+3. **Environment Configuration**
+    - Copy the `.env.example` to `.env`
+    - Set up your database credentials in the `.env` file.
+    - Run the migrations to set up the database schema:
+        ```bash
+        php artisan migrate
+        ```
 
-4. **Run the database migrations:**
-    ```bash
-    php artisan migrate
-    ```
+4. **Running the Importer**
+    - You can manually trigger the import using the artisan command:
+        ```bash
+        php artisan customers:import
+        ```
 
-5. **Generate an application key:**
-    ```bash
-    php artisan key:generate
-    ```
-
-6. **Run the application:**
-    ```bash
-    php artisan serve
-    ```
+5. **Running Tests**
+    - Run the test suite to ensure everything is functioning as expected:
+        ```bash
+        php artisan test
+        ```
 
 ## API Endpoints
 
-### Import Customers
+- **GET /api/customers**: Retrieve the list of all customers.
+- **GET /api/customers/{customerId}**: Retrieve details of a specific customer.
+- **POST /api/customers/import**: Import customers from the third-party API.
 
-- **Endpoint:** `POST /api/customers/import`
-- **Description:** Imports 100 customers with Australian nationality from the RandomUser API and stores them in the database.
-- **Example Request:**
-    ```bash
-    curl -X POST http://127.0.0.1:8000/api/customers/import
-    ```
+## Postman Collection
+A Postman collection is included in the project for testing the API endpoints.
 
-### List Customers
+- Import the `UserImporter.postman_collection.json` file into Postman to use the pre-configured requests.
 
-- **Endpoint:** `GET /api/customers`
-- **Description:** Retrieves a list of all customers stored in the database.
-- **Response Structure:**
-    ```json
-    [
-        {
-            "full_name": "John Doe",
-            "email": "johndoe@example.com",
-            "country": "Australia"
-        },
-        ...
-    ]
-    ```
+## Contribution Guidelines
+If you would like to contribute to this project, please follow the standard GitHub fork and pull request process.
 
-### Get Customer Details
+## License
+This project is licensed under the MIT License.
 
-- **Endpoint:** `GET /api/customers/{customerId}`
-- **Description:** Retrieves detailed information about a specific customer.
-- **Response Structure:**
-    ```json
-    {
-        "data": {
-            "full_name": "John Doe",
-            "email": "johndoe@example.com",
-            "username": "johndoe",
-            "gender": "male",
-            "country": "Australia",
-            "city": "Sydney",
-            "phone": "123-456-7890"
-        }
-    }
-    ```
-
-## Tests
-
-- **Unit Tests:** Focus on individual methods or components.
-- **Feature Tests:** Validate the functionality of the API endpoints.
-
-### Running Tests
-
-To run all tests, use the following command:
-
-```bash
-php artisan test
-```
-
-## Design Considerations
-
-- **Single Responsibility Principle**: Code logic is decoupled into services and controllers to ensure maintainability.
-  
-- **Configuration Management**: Environment-specific values are stored in the `.env` file, ensuring flexibility in case of requirement changes.
-  
-- **Error Handling**: Proper exception handling is implemented throughout the application to provide meaningful error messages and logging.
