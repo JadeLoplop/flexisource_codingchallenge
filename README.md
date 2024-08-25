@@ -19,15 +19,15 @@ This Laravel project demonstrates how to build a RESTful API that imports custom
 
 - PHP 8.x
 - Composer
-- Laravel 9.x
+- Laravel 11.x
 - MySQL or another supported database
 
 ## Installation
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git
-    cd your-repository-name
+    git clone https://github.com/JadeLoplop/flexisource_codingchallenge.git
+    cd flexisource_codingchallenge
     ```
 
 2. **Install dependencies:**
