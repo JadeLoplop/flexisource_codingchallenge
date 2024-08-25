@@ -34,10 +34,11 @@ This repository contains the solution for the Flexisource coding challenge. The 
         ```
 
 4. **Running the Importer**
-    - You can manually trigger the import using the artisan command:
+    - After migrating the database, you need to import customer data. You can manually trigger the import using the artisan command:
         ```bash
-        php artisan customers:import
+        php artisan customers:import [number]
         ```
+      Replace `[number]` with the number of records you want to import. The default value is 100 if no number is provided.
 
 5. **Running Tests**
     - Run the test suite to ensure everything is functioning as expected:
@@ -55,10 +56,3 @@ This repository contains the solution for the Flexisource coding challenge. The 
 A Postman collection is included in the project for testing the API endpoints.
 
 - Import the `UserImporter.postman_collection.json` file into Postman to use the pre-configured requests.
-
-## Contribution Guidelines
-If you would like to contribute to this project, please follow the standard GitHub fork and pull request process.
-
-## License
-This project is licensed under the MIT License.
-
