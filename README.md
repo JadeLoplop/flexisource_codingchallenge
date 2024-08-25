@@ -33,7 +33,7 @@ This repository contains the solution for the Flexisource coding challenge. The 
         php artisan migrate
         ```
 
-4. **Running the Importer**
+4. **Running the Importer (Optional, Since you can use API Endpoint which by default is 100)**
     - After migrating the database, you need to import customer data. You can manually trigger the import using the artisan command:
         ```bash
         php artisan customers:import [number]
