@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "8e01c5a9-372d-43f4-ac0a-c4888e98fe72",
+		"name": "UserImporter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12672765"
+	},
+	"item": [
+		{
+			"name": "Get Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/api/customers",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer #",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/api/customers/50",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"api",
+						"customers",
+						"50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Import",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/api/customers/import",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"api",
+						"customers",
+						"import"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
